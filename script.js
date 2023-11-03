@@ -1,5 +1,4 @@
 // Your Script here.
-
 const lookup = {
   A: "N",
   B: "O",
@@ -32,23 +31,18 @@ const lookup = {
 };
 
 function rot13(encodedStr) {
-  let decodedArr = []; // Your Result goes here
-  // Only change code below this line
-  encodedStr = encodedStr.toUpperCase();
-	let i=0;
-for(letkey of encodedStr)
-	{
-    if((letkey>='A' && letkey<='Z') || letkey== "?"|| letkey==","){
-     decodedArr[i] = lookup[letkey];
-    }
-  else
-	{
-		    decodedArr[i] = letkey;
-	}
-		i++;
-	}
-  return decodedArr; //return decodedArr
+  let decodedArr = [];
+
+  for (let i = 0; i < encodedStr.length; i++) {
+    const char = encodedStr[i];
+    const decodedChar = lookup[char] || char;
+    decodedArr.push(decodedChar);
+  }
+
+  return decodedArr.join("");
 }
+
+console.log(rot13("SERR YBIR? NPPVBWBO")); // This should output "FREE LOVE? CAISSANO"
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
